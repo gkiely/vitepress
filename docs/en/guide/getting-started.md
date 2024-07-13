@@ -9,12 +9,27 @@ You can try VitePress directly in your browser on [StackBlitz](https://vitepress
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) version 18 or higher.
-- Terminal for accessing VitePress via its command line interface (CLI).
 - Text Editor with [Markdown](https://en.wikipedia.org/wiki/Markdown) syntax support.
   - [VSCode](https://code.visualstudio.com/) is recommended, along with the [official Vue extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
 
-VitePress can be used on its own, or be installed into an existing project. In both cases, you can install it with:
+::: details Getting missing peer deps warnings?
+If using PNPM, you will notice a missing peer warning for `@docsearch/js`. This does not prevent VitePress from working. If you wish to suppress this warning, add the following to your `package.json`:
 
+```json
+"pnpm": {
+  "peerDependencyRules": {
+    "ignoreMissing": [
+      "@algolia/client-search",
+      "search-insights"
+    ]
+  }
+}
+```
+
+:::
+
+
+::: details Using an existing project?
 ::: code-group
 
 ```sh [npm]
@@ -38,21 +53,6 @@ $ bun add -D vitepress
 ```
 
 :::
-
-::: details Getting missing peer deps warnings?
-If using PNPM, you will notice a missing peer warning for `@docsearch/js`. This does not prevent VitePress from working. If you wish to suppress this warning, add the following to your `package.json`:
-
-```json
-"pnpm": {
-  "peerDependencyRules": {
-    "ignoreMissing": [
-      "@algolia/client-search",
-      "search-insights"
-    ]
-  }
-}
-```
-
 :::
 
 ::: tip NOTE
